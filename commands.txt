@@ -1,1 +1,11 @@
-hjhkhk
+cd /proc :proc will show process running in your sysytem
+cd /sys : here proc and sys is a psedo file system which shows information about processes. /sys will show all about your CPU ans system information
+lsmod : will show linux kernal module which is used by our system.( lsmod | less)
+lsblk: list block device basically a storage device .i.e showing device information
+cd /dev  --->xvda1 is a hard disk . so every device in the case of linux is stored in /dev--and who adds in /dev is udev
+find /home -name main.py  here /home means searcht he file main.py in home
+find / -name main.py  ... here /means search all the file in linux
+
+HOW TO FIND DIRECTORY
+find / -type d -name src   or find / -name test -type d
+ 
