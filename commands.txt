@@ -8,4 +8,51 @@ find / -name main.py  ... here /means search all the file in linux
 
 HOW TO FIND DIRECTORY
 find / -type d -name src   or find / -name test -type d
+ --------------------------------------------------------------------
+                                          REGULAR EXPRESSION
+ ? How to set line number in vim editor..answer is set nu
+ ?how to set line number, use nl ex-nl engineering.txt
+ # cat /etc/passwd ==will show all the users of linux system
+ 
+ consider the engineering .txt file and perform the below operation
+ 
+   serching txt starts with engineering
+ cat engineering.txt | grep '^engineering
+    searching a text with engineering considering case insensitive
+  cat engineering.txt | grep -i '^Engineering
+    searching a text whcih ends with engineering
+ cat engineering.txt | greo -i 'engineering.$'
+ 
+       Now remember the below command
+          ^===>means starting with
+          -i===>means case in sensitive
+           $===> means ending with
+           .===> dot means any character
+           RANGE [0-9]
+                  [a-z]
+                  [A-Z]
+                  [A-Za-z]
+                  [345] memans 3 or 4 or5
+          \d---> means atleast one number then i will be using
+            \d+ --.plus menas one or more
+            \d*--->* means zero or
+            \d?---> ?means atleast once
+            
+    # declare -f ( will show some function which are basically written
+  Question1: i want those all function name defined in linux
+   answwer is
+          first redirect(>) the file
+          declare -f > declaration.txt
+        cat declaration.txt | grep -E '^[a-z_]\d*()'    (here E stands for enhanced)
+        
+   Questin2:Adharcard example
+                      9876-8765-9725
+              answer is \d{4} -\d{4} -\d{4}
+              
+   just to remenber | grep -V -E  . here -v meand naged this i.e anything which is not matching  and E means enhanced
+    
+           
+  
+    
+ 
  
