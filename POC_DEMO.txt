@@ -1,1 +1,92 @@
-HOW TO CREATE K8S CLUSTER USING MINIKUBE
+INSTALLING HELM BINARY
+. Download darwin-amd64  for Mac os
+ Go to CD DRAWIN-AMDR64-> LS
+  Now move helm to usr/local/bin
+
+Now create service account 
+
+Kubectl -n kube-system create serviceaccount tiller
+
+Now role binding
+
+Kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+Here we created cluster role binding 
+
+Now run command:
+Kubectl get clusterrolebinding tiller
+
+
+helm init --service-account tiller: it will deploy tiller pod
+
+
+kubectl -n kube-system get pods
+
+Lets install jenkins now
+
+helm search Jenkins
+Helm install stable/jenkins----: but we are not going to do in that way, we are going to do customise some option of the jenkins
+                                                     Configuration. This application comes with some set of configuration but we need to update      
+                                                     Few configuration so first I need to download the config file first, for that run the below bold command
+
+helm inspect values stable/jenkins
+
+now I am going to redirect that to temporary file for that
+
+helm inspect values stable/jenkins >tmp/jenkins.values
+vi /temp/jenkins.values
+
+master:
+  adminPassword: admin
+  serviceType: NodePort
+  nodePort: 32323
+
+
+
+helm install stable/jenkins --values /tmp/helm-jenkins.txt --name myjenkins
+
+kubectl describe pod myjenkins-5b597498f7-cj4mr
+
+kubectl describe services
+
+ kubectl logs myjenkins-5b597498f7-cj4mr | less
+
+kubectl get all
+
+kubectl describe services
+
+kubectl describe pod myjenkins-5b597498f7-cj4mr
+
+
+http://192.168.99.101:32323/    Access the Jenkins using UN:ADMIN  PWD AS PWD
+
+In minikube pass the following command to find ip
+
+Ifconfig | grep inet
+
+
+  helm search jenkins
+  539  helm fetch stable/jenkins
+  540  helm list
+  541  cd /tmp/
+  542  ls -l
+  543  vi test.txt
+  544  helm install stable/jenkins --values /tmp/test.txt --name myjenkins
+  558  kubectl get all
+  559  kubectl logs myjenkins-5b597498f7-j8dvm
+  560  kubectl logs myjenkins-5b597498f7-j8dvm | less
+  561  kubectl describe pod service/myjenkins
+  562  kubectl describe pod myjenkins-5b597498f7-j8dvm
+  563  kubectl logs myjenkins-5b597498f7-j8dvm | less
+  kubectl get pods --all-namespaces
+kubectl -n kube-system get pods
+
+ 543  vi test.txt
+  544  helm install stable/jenkins --values /tmp/test.txt --name myjenkins
+
+
+To uninstall/delete the deployment:
+
+$ helm list
+NAME           REVISION    UPDATED                     STATUS      CHART              NAMESPACE
+kindly-newt    1           Mon Oct  2 15:05:44 2017    DEPLOYED    sonarqube-0.1.0    default
+$ helm delete kindly-newt
