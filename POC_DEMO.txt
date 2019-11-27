@@ -1,4 +1,4 @@
-INSTALLING HELM BINARY and deploying application(jenkins) or K8S cluster
+INSTALLING HELM BINARY and deploying application(jenkins) on K8S cluster
 . Download darwin-amd64  for Mac os
  Go to CD DRAWIN-AMDR64-> LS
   Now move helm to usr/local/bin
