@@ -1,4 +1,14 @@
-INSTALLING HELM BINARY and deploying application(jenkins) on K8S cluster
+HOW TO CREATE K8S CLUSTER USING MINIKUBE
+
+===Installling Kubectl
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos
+
+Installing minikube :
+
+https://kubernetes.io/docs/tasks/tools/install-minikube/
+----------------------------------------------------------------------
+====>INSTALLING HELM BINARY and deploying application(jenkins) on K8S cluster
 . Download darwin-amd64  for Mac os
  Go to CD DRAWIN-AMDR64-> LS
   Now move helm to usr/local/bin
